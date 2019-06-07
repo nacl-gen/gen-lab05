@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 2.8.2)
 
 project(DP_Example)
 
+add_executable(DP_Example Customer.h Customer.cpp main.cpp Movie.h Movie.cpp Rental.h)
+
 include(CTest)
 
 if (CMAKE_VERSION VERSION_LESS 3.2)
