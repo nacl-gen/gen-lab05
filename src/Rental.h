@@ -11,7 +11,6 @@ public:
     Rental(Movie movie, int daysRented );
 
     int getDaysRented() const;
-    const Movie& getMovie() const;
     double computeAmount() const;
     int getBonusPoints() const;
 
@@ -30,8 +29,5 @@ Rental(Movie movie, int daysRented )
 
 inline int Rental::
 getDaysRented() const { return _daysRented; }
-
-inline const Movie& Rental::
-getMovie() const { return _movie; }
 
 #endif // RENTAL_H
