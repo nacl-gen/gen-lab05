@@ -17,6 +17,8 @@ public:
 private:
     std::string _name;
     std::vector< Rental > _rentals;
+
+    double computeAmount(const Rental &each) const;
 };
 
 inline Customer::
