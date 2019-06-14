@@ -1,6 +1,8 @@
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 
+#include <ostream>
+
 #include "../src/Rental.h"
 
 /**
@@ -120,6 +122,28 @@ TEST(rental_bonus_tests, newReleaseMovieWithLessThanTwoDaysGivesBonus) {
 
     EXPECT_EQ(bonus, expectedBonus);
 }
+
+/**
+ * UnitTest
+ * Test rental print (output stream)
+ */
+TEST(rental_print_tests, rentalPrint) {
+
+    Movie newMovie("Movie name", 1);
+    Rental rental(newMovie, 1);
+
+    std::ostringstream ss;
+    ss << rental;
+    std::string result = ss.str();
+
+    std::string expectedResult = "Movie name\t";
+    expectedResult += std::to_string((int) rental.computeAmount());
+
+
+    EXPECT_EQ(result, expectedResult);
+}
+
+
 
 
 
