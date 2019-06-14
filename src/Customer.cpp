@@ -25,8 +25,9 @@ string Customer::statement()
 
         // add frequent renter points
         frequentRenterPoints++;
+
         // add bonus for a two day new release rental
-        frequentRenterPoints += getBonusPoints(each);
+        frequentRenterPoints += each.getBonusPoints();
 
         // show figures for this rental
         result << "\t" << each.getMovie().getTitle() << "\t"
@@ -38,11 +39,4 @@ string Customer::statement()
     result << "You earned " << frequentRenterPoints
            << " frequent renter points";
     return result.str();
-}
-
-int Customer::getBonusPoints(const Rental &each) const {
-    if ((each.getMovie().getPriceCode() == Movie::NEW_RELEASE ) && each.getDaysRented() > 1 ) {
-        return 1;
-    }
-    return 0;
 }

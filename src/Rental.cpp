@@ -20,3 +20,10 @@ double Rental::computeAmount() const {
     return amount;
 }
 
+int Rental::getBonusPoints() const {
+    if ((getMovie().getPriceCode() == Movie::NEW_RELEASE ) && getDaysRented() > 1 ) {
+        return 1;
+    }
+    return 0;
+}
+

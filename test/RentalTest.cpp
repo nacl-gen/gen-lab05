@@ -7,7 +7,7 @@
  * UnitTest
  * Test rental price computation children with less than 4 rental days
  */
-TEST(rental_unit_tests, childrenMovieHasRightPriceWithLessThanFourDays) {
+TEST(rental_price_tests, childrenMovieHasRightPriceWithLessThanFourDays) {
 
     Movie childrenMovie("children movie", 2);
     Rental rental(childrenMovie, 3);
@@ -24,7 +24,7 @@ TEST(rental_unit_tests, childrenMovieHasRightPriceWithLessThanFourDays) {
  * UnitTest
  * Test rental price computation children with more than 3 rental days
  */
-TEST(rental_unit_tests, childrenMovieHasRightPriceWithMoreThanThreeDays) {
+TEST(rental_price_tests, childrenMovieHasRightPriceWithMoreThanThreeDays) {
 
     Movie childrenMovie("children movie", 2);
     Rental rental(childrenMovie, 4);
@@ -41,7 +41,7 @@ TEST(rental_unit_tests, childrenMovieHasRightPriceWithMoreThanThreeDays) {
  * UnitTest
  * Test rental price computation new release
  */
-TEST(rental_unit_tests, newReleaseMovieHasRightPrice) {
+TEST(rental_price_tests, newReleaseMovieHasRightPrice) {
 
     Movie newReleaseMovie("new movie", 1);
     Rental rental(newReleaseMovie, 2);
@@ -58,7 +58,7 @@ TEST(rental_unit_tests, newReleaseMovieHasRightPrice) {
  * UnitTest
  * Test rental price computation regular with less than 3 rental days
  */
-TEST(rental_unit_tests, regularMovieHasRightPriceWithLessThanThreeDays) {
+TEST(rental_price_tests, regularMovieHasRightPriceWithLessThanThreeDays) {
 
     Movie regularMovie("regular movie", 0);
     Rental rental(regularMovie, 2);
@@ -74,7 +74,7 @@ TEST(rental_unit_tests, regularMovieHasRightPriceWithLessThanThreeDays) {
  * UnitTest
  * Test rental price computation regular with more than 2 rental days
  */
-TEST(rental_unit_tests, regularMovieHasRightPriceWithMoreThanTwoDays) {
+TEST(rental_price_tests, regularMovieHasRightPriceWithMoreThanTwoDays) {
 
     Movie regularMovie("regular movie", 0);
     Rental rental(regularMovie, 3);
@@ -86,4 +86,40 @@ TEST(rental_unit_tests, regularMovieHasRightPriceWithMoreThanTwoDays) {
 
     EXPECT_EQ(amount, expectedAmount);
 }
+
+/**
+ * UnitTest
+ * Test rental bonus computation for more than 1 day rental of a new release
+ */
+TEST(rental_bonus_tests, newReleaseMovieWithMoreThanOneDayGivesBonus) {
+
+    Movie newMovie("new movie", 1);
+    Rental rental(newMovie, 2);
+
+    double bonus = rental.getBonusPoints();
+
+    double expectedBonus = 1;
+
+
+    EXPECT_EQ(bonus, expectedBonus);
+}
+
+/**
+ * UnitTest
+ * Test rental bonus computation for less than 2 day rental of new release
+ */
+TEST(rental_bonus_tests, newReleaseMovieWithLessThanTwoDaysGivesBonus) {
+
+    Movie newMovie("new movie", 1);
+    Rental rental(newMovie, 1);
+
+    double bonus = rental.getBonusPoints();
+
+    double expectedBonus = 0;
+
+
+    EXPECT_EQ(bonus, expectedBonus);
+}
+
+
 
