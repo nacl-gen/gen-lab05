@@ -5,7 +5,7 @@
 #include "../src/pricecode/NewReleasePriceCode.h"
 #include "../src/pricecode/ChildrenPriceCode.h"
 
-// Unit test suite for the price code classes (all of the subclasses)
+// Unit test suite for the price code classes computePrice method (all of the subclasses)
 
 /**
  * UnitTest
@@ -50,7 +50,7 @@ TEST(pricecode_amount_tests, newReleasePriceCode) {
  * UnitTest
  * Test children price code with more than 3 days gives right amount
  */
-TEST(pricecode_amount_tests, ChildrenPriceCodeWithMoreThanThreeDays) {
+TEST(pricecode_amount_tests, childrenPriceCodeWithMoreThanThreeDays) {
 
     double amount = ChildrenPriceCode::getInstance().computePrice(4);
 
@@ -63,12 +63,27 @@ TEST(pricecode_amount_tests, ChildrenPriceCodeWithMoreThanThreeDays) {
  * UnitTest
  * Test children price code with less than 4 days gives right amount
  */
-TEST(pricecode_amount_tests, ChildrenPriceCodeWithLessThanFourDays) {
+TEST(pricecode_amount_tests, childrenPriceCodeWithLessThanFourDays) {
 
     double amount = ChildrenPriceCode::getInstance().computePrice(2);
 
     double expectedAmount = 1.5;
 
     EXPECT_EQ(amount, expectedAmount);
+}
+
+// Unit test for the getBonusPoints method (only NewReleasePriceCode actually)
+
+/**
+ * UnitTest
+ * Test if the the NewReleasePriceCode return a bonus of 1
+ */
+TEST(pricecode_bonus_tests, newReleasePriceCodeReturnsRightBonus) {
+
+    int bonus = NewReleasePriceCode::getInstance().getBonusPoints();
+
+    int expectedBonus = 1;
+
+    EXPECT_EQ(bonus, expectedBonus);
 }
 
