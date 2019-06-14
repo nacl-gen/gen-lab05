@@ -1,3 +1,5 @@
+#include <utility>
+
 // Movie.h
 #ifndef MOVIE_H
 #define MOVIE_H
@@ -9,7 +11,7 @@ public:
     static const int REGULAR     = 0;
     static const int NEW_RELEASE = 1;
 
-    Movie( const std::string& title, int priceCode = REGULAR );
+    explicit Movie(std::string title, int priceCode = REGULAR );
 
     friend std::ostream& operator<< (std::ostream& ostream, const Movie& movie);
 
@@ -23,8 +25,8 @@ private:
 };
 
 inline Movie::
-Movie( const std::string& title, int priceCode )
-        : _title( title )
+Movie(std::string title, int priceCode )
+        : _title(std::move(title))
         , _priceCode( priceCode )
 {}
 
