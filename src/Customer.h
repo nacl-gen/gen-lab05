@@ -20,7 +20,7 @@ private:
 };
 
 inline Customer::
-Customer() {}
+Customer() = default;
 
 inline Customer::
 Customer( const std::string& name )
