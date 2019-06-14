@@ -13,7 +13,7 @@
  */
 TEST(movie_print_tests, moviePrint) {
 
-    Movie movie("Movie name", 0);
+    Movie movie("Movie name");
 
     // OSS 117 ;)
     std::ostringstream oss;

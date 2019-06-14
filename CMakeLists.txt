@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.2)
 
 project(Gen-lab5)
 
-add_executable(Gen-lab5 src/Customer.h src/Customer.cpp src/main.cpp src/Movie.h src/Movie.cpp src/Rental.h src/Rental.cpp)
+add_executable(Gen-lab5 src/Customer.h src/Customer.cpp src/main.cpp src/Movie.h src/Movie.cpp src/Rental.h src/Rental.cpp src/PriceCode.h src/NewReleasePriceCode.h src/RegularPriceCode.h src/ChildrenPriceCode.h)
 
 include(CTest)
 
@@ -35,6 +35,6 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 # Trivial example using gtest and gmock
-add_executable(tests src/Customer.h src/Customer.cpp src/Movie.h src/Movie.cpp test/CustomerTest.cpp test/MovieTest.cpp test/RentalTest.cpp src/Rental.cpp)
+add_executable(tests src/Customer.h src/Customer.cpp src/Movie.h src/Movie.cpp test/CustomerTest.cpp test/MovieTest.cpp test/RentalTest.cpp src/Rental.cpp src/PriceCode.h src/NewReleasePriceCode.h src/RegularPriceCode.h src/ChildrenPriceCode.h)
 target_link_libraries(tests gtest gmock_main)
 add_test(NAME tests COMMAND tests)

@@ -1,8 +1,6 @@
-#include "Movie.h"
+#include <utility>
 
-const int Movie::CHILDRENS;
-const int Movie::REGULAR;
-const int Movie::NEW_RELEASE;
+#include "Movie.h"
 
 std::ostream& operator<< (std::ostream& ostream, const Movie& movie) {
     return ostream << movie.getTitle();
