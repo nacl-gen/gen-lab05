@@ -9,6 +9,8 @@ public:
 
     int getDaysRented() const;
     const Movie& getMovie() const;
+    double computeAmount() const;
+    int getBonusPoints() const;
 
 private:
     Movie _movie;
