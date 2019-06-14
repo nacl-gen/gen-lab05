@@ -5,13 +5,13 @@
 
 #include "../src/Movie.h"
 
-// Unit test suite for the move class
+// Unit test suite for the Movie class
 
 /**
  * UnitTest
  * Test movie print (output stream)
  */
-TEST(movie_print_tests, moviePrint) {
+TEST(movie_tests, moviePrint) {
 
     Movie movie("Movie name");
 
@@ -22,6 +22,17 @@ TEST(movie_print_tests, moviePrint) {
 
     std::string expectedName = "Movie name";
 
+
+    EXPECT_EQ(name, expectedName);
+}
+
+TEST(movie_tests, getTitleWorks) {
+
+    Movie movie("Movie name");
+
+    std::string name = movie.getTitle();
+
+    std::string expectedName = "Movie name";
 
     EXPECT_EQ(name, expectedName);
 }
