@@ -5,6 +5,8 @@
 
 #include "../src/Movie.h"
 
+// Unit test suite for the move class
+
 /**
  * UnitTest
  * Test movie print (output stream)

@@ -5,6 +5,8 @@
 
 #include "../src/Rental.h"
 
+// unit test suite for the Rental class
+
 /**
  * UnitTest
  * Test rental price computation children with less than 4 rental days
