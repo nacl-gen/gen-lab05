@@ -21,7 +21,7 @@ string Customer::statement()
         Rental each = *iter;
 
         // determine amounts for each line
-        thisAmount += computeAmount(each);
+        thisAmount += each.computeAmount();
 
         // add frequent renter points
         frequentRenterPoints++;
@@ -39,24 +39,4 @@ string Customer::statement()
     result << "You earned " << frequentRenterPoints
            << " frequent renter points";
     return result.str();
-}
-
-double Customer::computeAmount(const Rental &each) const {
-    double amount = 0;
-    switch ( each.getMovie().getPriceCode() ) {
-            case Movie::REGULAR:
-                amount += 2;
-                if ( each.getDaysRented() > 2 )
-                    amount += ( each.getDaysRented() - 2 ) * 1.5 ;
-                break;
-            case Movie::NEW_RELEASE:
-                amount += each.getDaysRented() * 3;
-                break;
-            case Movie::CHILDRENS:
-                amount += 1.5;
-                if ( each.getDaysRented() > 3 )
-                    amount += ( each.getDaysRented() - 3 ) * 1.5;
-                break;
-        }
-    return amount;
 }
