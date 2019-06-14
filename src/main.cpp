@@ -1,8 +1,8 @@
 #include <iostream>
 
 #include "Customer.h"
-#include "NewReleasePriceCode.h"
-#include "ChildrenPriceCode.h"
+#include "pricecode/NewReleasePriceCode.h"
+#include "pricecode/ChildrenPriceCode.h"
 
 int main() {
 

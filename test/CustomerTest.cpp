@@ -2,8 +2,8 @@
 #include "gmock/gmock.h"
 
 #include "../src/Customer.h"
-#include "../src/NewReleasePriceCode.h"
-#include "../src/ChildrenPriceCode.h"
+#include "../src/pricecode/NewReleasePriceCode.h"
+#include "../src/pricecode/ChildrenPriceCode.h"
 
 // Integration test suite for the Customers statement
 

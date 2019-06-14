@@ -4,8 +4,8 @@
 #include <ostream>
 
 #include "../src/Rental.h"
-#include "../src/ChildrenPriceCode.h"
-#include "../src/NewReleasePriceCode.h"
+#include "../src/pricecode/ChildrenPriceCode.h"
+#include "../src/pricecode/NewReleasePriceCode.h"
 
 // unit test suite for the Rental class
 
