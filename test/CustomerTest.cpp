@@ -2,6 +2,8 @@
 #include "gmock/gmock.h"
 
 #include "../src/Customer.h"
+#include "../src/NewReleasePriceCode.h"
+#include "../src/ChildrenPriceCode.h"
 
 // Integration test suite for the Customers statement
 
@@ -42,8 +44,8 @@ TEST(customer_integration_tests, statementWithScenario) {
     Customer customer("Olivier");
 
     customer.addRental( Rental( Movie("Karate Kid"), 7));
-    customer.addRental( Rental( Movie( "Avengers: Endgame", Movie::NEW_RELEASE ), 5));
-    customer.addRental( Rental( Movie("Snow White", Movie::CHILDRENS), 3 ));
+    customer.addRental( Rental( Movie( "Avengers: Endgame", NewReleasePriceCode::getInstance()), 5));
+    customer.addRental( Rental( Movie("Snow White", ChildrenPriceCode::getInstance()), 3 ));
 
     std::string result = customer.statement();
     std::string expected = "Rental Record for Olivier\n\tKarate Kid\t9.5\n"

@@ -5,36 +5,36 @@
 #define MOVIE_H
 #include <string>
 
+#include "PriceCode.h"
+#include "RegularPriceCode.h"
+
 class Movie {
 public:
-    static const int CHILDRENS   = 2;
-    static const int REGULAR     = 0;
-    static const int NEW_RELEASE = 1;
 
-    explicit Movie(std::string title, int priceCode = REGULAR );
+    explicit Movie(std::string title, PriceCode& priceCode = RegularPriceCode::getInstance());
 
     friend std::ostream& operator<< (std::ostream& ostream, const Movie& movie);
 
-    int getPriceCode() const;
-    void setPriceCode( int arg );
+    PriceCode* getPriceCode() const;
+    void setPriceCode( PriceCode& priceCode );
     std::string getTitle() const;
 
 private:
     std::string _title;
-    int _priceCode;
+    PriceCode* _priceCode;
 };
 
 inline Movie::
-Movie(std::string title, int priceCode )
+Movie(std::string title, PriceCode& priceCode )
         : _title(std::move(title))
-        , _priceCode( priceCode )
+        , _priceCode( &priceCode )
 {}
 
-inline int Movie::
+inline PriceCode* Movie::
 getPriceCode() const { return _priceCode; }
 
 inline void Movie::
-setPriceCode( int arg ) { _priceCode = arg; }
+setPriceCode( PriceCode& priceCode ) { _priceCode = &priceCode; }
 
 inline std::string Movie::
 getTitle() const { return _title; }

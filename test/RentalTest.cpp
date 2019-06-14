@@ -4,6 +4,8 @@
 #include <ostream>
 
 #include "../src/Rental.h"
+#include "../src/ChildrenPriceCode.h"
+#include "../src/NewReleasePriceCode.h"
 
 // unit test suite for the Rental class
 
@@ -13,7 +15,7 @@
  */
 TEST(rental_price_tests, childrenMovieHasRightPriceWithLessThanFourDays) {
 
-    Movie childrenMovie("children movie", 2);
+    Movie childrenMovie("children movie", ChildrenPriceCode::getInstance());
     Rental rental(childrenMovie, 3);
 
     double amount = rental.computeAmount();
@@ -30,7 +32,7 @@ TEST(rental_price_tests, childrenMovieHasRightPriceWithLessThanFourDays) {
  */
 TEST(rental_price_tests, childrenMovieHasRightPriceWithMoreThanThreeDays) {
 
-    Movie childrenMovie("children movie", 2);
+    Movie childrenMovie("children movie", ChildrenPriceCode::getInstance());
     Rental rental(childrenMovie, 4);
 
     double amount = rental.computeAmount();
@@ -47,7 +49,7 @@ TEST(rental_price_tests, childrenMovieHasRightPriceWithMoreThanThreeDays) {
  */
 TEST(rental_price_tests, newReleaseMovieHasRightPrice) {
 
-    Movie newReleaseMovie("new movie", 1);
+    Movie newReleaseMovie("new movie", NewReleasePriceCode::getInstance());
     Rental rental(newReleaseMovie, 2);
 
     double amount = rental.computeAmount();
@@ -64,7 +66,7 @@ TEST(rental_price_tests, newReleaseMovieHasRightPrice) {
  */
 TEST(rental_price_tests, regularMovieHasRightPriceWithLessThanThreeDays) {
 
-    Movie regularMovie("regular movie", 0);
+    Movie regularMovie("regular movie", RegularPriceCode::getInstance());
     Rental rental(regularMovie, 2);
 
     double amount = rental.computeAmount();
@@ -80,7 +82,7 @@ TEST(rental_price_tests, regularMovieHasRightPriceWithLessThanThreeDays) {
  */
 TEST(rental_price_tests, regularMovieHasRightPriceWithMoreThanTwoDays) {
 
-    Movie regularMovie("regular movie", 0);
+    Movie regularMovie("regular movie", RegularPriceCode::getInstance());
     Rental rental(regularMovie, 3);
 
     double amount = rental.computeAmount();
@@ -97,7 +99,7 @@ TEST(rental_price_tests, regularMovieHasRightPriceWithMoreThanTwoDays) {
  */
 TEST(rental_bonus_tests, newReleaseMovieWithMoreThanOneDayGivesBonus) {
 
-    Movie newMovie("new movie", 1);
+    Movie newMovie("new movie", NewReleasePriceCode::getInstance());
     Rental rental(newMovie, 2);
 
     double bonus = rental.getBonusPoints();
@@ -114,7 +116,7 @@ TEST(rental_bonus_tests, newReleaseMovieWithMoreThanOneDayGivesBonus) {
  */
 TEST(rental_bonus_tests, newReleaseMovieWithLessThanTwoDaysGivesBonus) {
 
-    Movie newMovie("new movie", 1);
+    Movie newMovie("new movie", NewReleasePriceCode::getInstance());
     Rental rental(newMovie, 1);
 
     double bonus = rental.getBonusPoints();
@@ -131,7 +133,7 @@ TEST(rental_bonus_tests, newReleaseMovieWithLessThanTwoDaysGivesBonus) {
  */
 TEST(rental_print_tests, rentalPrint) {
 
-    Movie newMovie("Movie name", 1);
+    Movie newMovie("Movie name", NewReleasePriceCode::getInstance());
     Rental rental(newMovie, 1);
 
     std::ostringstream ss;
