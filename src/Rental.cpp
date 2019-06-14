@@ -28,7 +28,7 @@ int Rental::getBonusPoints() const {
 }
 
 std::ostream& operator<< (std::ostream& ostream, const Rental& rental) {
-    ostream << rental.getMovie().getTitle() << "\t"
+    ostream << rental.getMovie() << "\t"
             << rental.computeAmount();
     return ostream;
 }

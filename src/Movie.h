@@ -11,6 +11,8 @@ public:
 
     Movie( const std::string& title, int priceCode = REGULAR );
 
+    friend std::ostream& operator<< (std::ostream& ostream, const Movie& movie);
+
     int getPriceCode() const;
     void setPriceCode( int arg );
     std::string getTitle() const;
