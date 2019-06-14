@@ -14,13 +14,12 @@ string Customer::statement()
     int frequentRenterPoints = 0;
 
     ostringstream result;
+
+    // add header line
     result << "Rental Record for " << getName() << "\n";
 
+    // add body
     for (const Rental &rental : _rentals) {
-        double thisAmount = 0;
-
-        // determine amounts for each line
-        thisAmount += rental.computeAmount();
 
         // add frequent renter points
         ++frequentRenterPoints;
@@ -30,7 +29,9 @@ string Customer::statement()
 
         // show figures for this rental
         result << "\t" << rental << "\n";
-        totalAmount += thisAmount;
+
+        // add rental price amount to total
+        totalAmount += rental.computeAmount();
     }
 
     // add footer lines
