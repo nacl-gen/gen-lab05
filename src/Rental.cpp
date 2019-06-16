@@ -1,12 +1,12 @@
 #include "Rental.h"
 
 double Rental::computeAmount() const {
-    return _movie.getPriceCode()->computePrice(getDaysRented());
+    return _movie.getPrice(getDaysRented());
 }
 
 int Rental::getBonusPoints() const {
     if(_daysRented > 1) {
-        return _movie.getPriceCode()->getBonusPoints();
+        return _movie.getBonus();
     }
     return 0;
 }

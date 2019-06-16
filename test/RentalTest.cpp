@@ -6,8 +6,11 @@
 #include "../src/Rental.h"
 #include "../src/pricecode/ChildrenPriceCode.h"
 #include "../src/pricecode/NewReleasePriceCode.h"
+#include "../src/pricecode/PriceCode.h"
 
 // unit test suite for the Rental class
+// but more like integration tests since we didn't mock the dependencies
+// didn't manage to make google mock work on non-pure virtual classes :\
 
 /**
  * UnitTest
@@ -21,7 +24,6 @@ TEST(rental_price_tests, childrenMovieHasRightPriceWithLessThanFourDays) {
     double amount = rental.computeAmount();
 
     double expectedAmount = 1.5;
-
 
     EXPECT_EQ(amount, expectedAmount);
 }

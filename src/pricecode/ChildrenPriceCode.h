@@ -14,7 +14,7 @@ public:
         return instance;
     }
 
-    double computePrice(double daysRented) override {
+    double computePrice(int daysRented) const override {
         return price + ((daysRented > 3) ? (daysRented - 3) * 1.5 : 0);
     }
 

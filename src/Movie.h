@@ -15,8 +15,12 @@ public:
 
     friend std::ostream& operator<< (std::ostream& ostream, const Movie& movie);
 
-    PriceCode* getPriceCode() const;
+    virtual double getPrice(int daysRented) const;
+
+    virtual int getBonus() const;
+
     void setPriceCode( PriceCode& priceCode );
+
     std::string getTitle() const;
 
 private:
@@ -29,9 +33,6 @@ Movie(std::string title, PriceCode& priceCode )
         : _title(std::move(title))
         , _priceCode( &priceCode )
 {}
-
-inline PriceCode* Movie::
-getPriceCode() const { return _priceCode; }
 
 inline void Movie::
 setPriceCode( PriceCode& priceCode ) { _priceCode = &priceCode; }

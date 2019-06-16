@@ -1,3 +1,5 @@
+#include <utility>
+
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
 
@@ -5,13 +7,13 @@
 #include "../src/pricecode/NewReleasePriceCode.h"
 #include "../src/pricecode/ChildrenPriceCode.h"
 
-// Integration test suite for the Customers statement
+// Unit test suite for Customers class
 
 /**
- * Integration
+ * Unit
  * Test statement of new Customer with name
  */
-TEST(customer_integration_tests, statementNewCustomerWithName) {
+TEST(customer_unit_tests, statementNewCustomerWithName) {
 
     Customer customer("CustomerName");
 
@@ -22,10 +24,10 @@ TEST(customer_integration_tests, statementNewCustomerWithName) {
 }
 
 /**
- * Integration
+ * Unit
  * Test statement of new Customer without name
  */
-TEST(customer_integration_tests, statementNewCustomerNoName) {
+TEST(customer_unit_tests, statementNewCustomerNoName) {
 
     Customer customer;
 
@@ -34,6 +36,8 @@ TEST(customer_integration_tests, statementNewCustomerNoName) {
 
     EXPECT_EQ(result, expected);
 }
+
+// Integration test suite for the Customers statement
 
 /**
  * Integration
