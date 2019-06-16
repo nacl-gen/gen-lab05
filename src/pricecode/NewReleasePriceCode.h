@@ -14,11 +14,11 @@ public:
         return instance;
     }
 
-    double computePrice(double daysRented) override {
+    double computePrice(int daysRented) const override {
         return daysRented * price;
     }
 
-    int getBonusPoints() override {
+    int getBonusPoints() const override {
         return 1;
     }
 

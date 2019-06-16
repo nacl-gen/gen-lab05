@@ -6,9 +6,9 @@ public:
 
     explicit PriceCode(double price) : price(price) {}
 
-    virtual double computePrice(double daysRented) = 0;
+    virtual double computePrice(int daysRented) const = 0;
 
-    virtual int getBonusPoints() {
+    virtual int getBonusPoints() const {
         return 0;
     }
 

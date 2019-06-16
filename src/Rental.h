@@ -10,13 +10,15 @@ class Rental {
 public:
     Rental(Movie movie, int daysRented );
 
-    int getDaysRented() const;
-    double computeAmount() const;
-    int getBonusPoints() const;
+    virtual int getDaysRented() const;
+
+    virtual double computeAmount() const;
+
+    virtual int getBonusPoints() const;
 
     friend std::ostream& operator<< (std::ostream& ostream, const Rental& rental);
 
-
+    virtual ~Rental() = default;
 private:
     Movie _movie;
     int _daysRented;
